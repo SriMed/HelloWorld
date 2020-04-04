@@ -1,4 +1,4 @@
 # HelloWorld
 -to store ideas, resources, or even share and discuss things with others.
-
-Ooh, cool. Learning to use GitHub is fun.
+-short-term personal projects also stored here
+--BookSorting--> allows English teachers to automatically sort students into reading circle groups
