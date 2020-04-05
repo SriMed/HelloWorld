@@ -1,0 +1,81 @@
+/*----------------------------------------------*/
+/*PAGE BODY ITSELF*/
+
+body {
+    /*width: 100%;*/
+    /*bottom: auto;*/
+    margin: 0px;
+}
+
+/*----------------------------------------------*/
+/*TOP NAV*/
+div.top-nav {
+    position: relative;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: auto;
+    height: 50px;
+    width: auto;
+    color: white;
+    padding: 20px;
+}
+
+ul.top-horizontal {
+    list-style-type: none;
+    margin: 0;
+    padding: 20px;
+    overflow: hidden;
+    background-color: #333;
+    color: white;
+}
+
+/*float li's left*/
+.lefty {
+    float: left;
+    color: white;
+}
+
+/*float li's right*/
+.righty {
+    float: right;
+    color: white;
+}
+
+.top-menu a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.top-menu a:hover {
+    background-color: #111;
+}
+
+
+
+/*----------------------------------------------*/
+/*CONTENT DIV*/
+/*margin is the space between this element and other elements*/
+/*padding is the space the content within this element and the outside edge of the element*/
+
+div.content {
+    margin: auto;
+    width: 750px;
+}
+
+.col-2 {
+    margin: 8px;
+    width: 355px;
+    float: left;
+    border: 2px solid #AAA;
+}
+
+.col-1 {
+    margin: 8px;
+    width: 726px;
+    float: left;
+    border: 4px solid #AAA;
+}

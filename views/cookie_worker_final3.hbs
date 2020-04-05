@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Cookie Content</title>
+    <link rel="stylesheet" type="text/css" href="css/nav_bar.css">
+  </head>
+  <body>
+    <div id="content-main">
+        <ul>
+            <li><a href="javascript:void(0)">View Cookie Content</a></li>
+            <li><a href="javascript:void(0)">{{submessage}}</a></li>
+            <li><a href="javascript:void(0)">Welcome, {{use}}. Enjoy your premium content</a></li>
+        </ul>
+        
+        <h3 id="titul">{{message}}</h2>
+        <div class="form_content" id="guessid">
+            <p id="error_message"></p>
+            <form>
+                <input class="inp" id="guess" type="text" name="guess"> <br>
+                <button class="inp" type="button" onclick="totalguess()">Guess!</button>
+            </form>
+        </div>
+        
+        <p>Num Views: {{numviews}}</p>
+        
+        {{!--{{#if logged_in}}--}}
+        <div class=content>
+            <img src={{img}}>
+        </div>
+        {{!--{{#\if}}--}}
+    
+        <div class="logout_content">
+            <form>
+                <button class="inp" type="button" onclick="logout()">Logout</button>
+            </form>
+        </div>
+    </div>
+    <script type="text/javascript" src="client-js/cookielogin.js"></script>
+    <script type="text/javascript" src="client-js/cookiecontent.js"></script>
+    <script type="text/javascript" src="client-js/cookielogout.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  </body>
+</html>

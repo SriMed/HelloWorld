@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Cookie Content</title>
+    <link rel="stylesheet" type="text/css" href="css/nav_bar.css">
+    <link rel="stylesheet" type="text/css" href="css/cookie.css">
+    <link href='https://fonts.googleapis.com/css?family=Dekko' rel='stylesheet'>
+    <style>
+        body {
+         font-family: 'Dekko';font-size: 22px;
+        }
+    </style>
+  </head>
+  <body>
+        
+    <h1 class="need_white">The Mystery Box</h1>
+    
+    {{> nav_bar }}
+    
+    {{!--there are 3 options--}}
+    {{#if loggedin}} {{!--3) login, premium content, make sure there's a logout button--}}
+       <div class="need_white">
+           <p>Num Views: {{numviews}}</p>
+            
+            <h2 id="titul">{{message}}</h2>
+            
+            <p>Welcome, {{use}}</p>
+            
+            <div class="form_content" id="guess_result">
+                <p id="error_message"></p>
+                <form>
+                    <input class="inp" id="guess" type="text" name="guess"> <br>
+                    <button class="inp" type="button" onclick="totalguess()">Guess!</button>
+                </form>
+            </div>
+            
+            <div class="img">
+                <img src={{img}}>
+            </div>
+            
+            <form class="form_content">
+                Use this button to log out:
+                <button class="inp" type="button" onclick="logout()">Logout</button>
+            </form>
+        </div>
+    {{else}}
+        {{#if lessthan6}} {{!--1) no login, premium content--}}
+            <div class="need_white">
+                <p>Num Views: {{numviews}}</p>
+        
+                <h2 id="titul">{{message}}</h2>
+                    
+                <div class="form_content" id="guess_result">
+                    <p id="error_message"></p>
+                    <form>
+                        <input class="inp" id="guess" type="text" name="guess"> <br>
+                        <button class="inp" type="button" onclick="totalguess()">Guess!</button>
+                    </form>
+                </div>
+                
+                <div class="img">
+                    <img src={{img}}>
+                </div>
+            </div>
+        {{else}} {{!--2) no login, asks for login (make sure to have associated text)--}}
+            <div class="need_white">
+                <h2 id="titul">{{message}}</h2>
+                <p id="error_message1"></p>
+                <p id="error_message2"></p>
+                <div class="form_content" id="content-main">
+                    <form>
+                        Please enter your username:
+                        <input class="inp" id="username" type="text" name="username"> <br>
+                        Please enter your password:
+                        <input class="inp" id="password" type="text" name="password"> <br>
+                        <button class="inp" type="button" onclick="login()">Log in</button>
+                    </form>
+                </div>
+            </div>
+        {{/if}}
+    {{/if}}
+
+    <script type="text/javascript" >
+        function login(){
+            console.log("REACHED LOGIN ENDPOINT AT LINE 73")
+            var continu = formvallogin()
+            console.log(continu)
+            if(continu === true)
+            {
+                var userValue = document.querySelector("input[name='username']").value;
+                var passValue = document.querySelector("input[name='password']").value;
+                
+                var endpoint = 'https://user.tjhsst.edu/2021smedaram/cookie_content?user=' + userValue + '&pass=' + passValue
+                console.log(endpoint)
+                window.location.href = endpoint
+                //redirect back to get back to premium content
+            }
+        }
+        
+        function formvallogin() {
+            var user = formuser()
+            var pass = formpass()
+            return (user && pass)
+        }
+        
+        function formuser() {      //edit these to make for user and pass are not nothing
+            var guess = document.getElementById('username')
+            var message = document.getElementById('error_message1')
+            if(guess.value.length == 0)
+            {
+                message.innerHTML = "Please make sure your username is valid"
+                message.style.color = "#F00"
+                return false
+            }
+            else
+            {
+            return true
+            }
+        }
+        function formpass() {      //edit these to make for user and pass are not nothing
+            var guess = document.getElementById('password')
+            var message = document.getElementById('error_message2')
+            if(guess.value.length == 0)
+            {
+                message.innerHTML = "Please make sure your password is valid"
+                message.style.color = "#F00"
+                return false
+            }
+            else
+            {
+            return true
+            }
+        }
+        
+        function totalguess(){
+            var continu = formguesscontent()
+            console.log(continu)
+            if(continu === true)
+            {
+                var guessValue = document.querySelector("input[name='guess']").value;
+                var ajax_params = {
+                    'url'     : "https://user.tjhsst.edu/2021smedaram/cookie_guess_box",
+                    'type'    : "get",
+                    'data'    : { 'guess' : guessValue},
+                    'success' : onServerResponseG
+                }
+                $.ajax( ajax_params )
+            }
+        }
+        
+        function onServerResponseG (responseText) {
+            console.log(responseText);
+            document.getElementById('guess_result').innerHTML = 'Your guess is ' + responseText + '. Please refresh if you would like to try again.';;
+        }
+        
+        function formguesscontent() {
+            var guess = document.getElementById('guess')
+            var message = document.getElementById('error_message')
+            if(guess.value.length == 0)
+            {
+                message.innerHTML = "Please make sure your input is valid"
+                message.style.color = "#F00"
+                return false
+            }
+            else
+            {
+            return true
+            }
+        }
+        function logout(){
+            console.log("GOT TO LOGOUT AT LINE 157")
+            window.location.href = "https://user.tjhsst.edu/2021smedaram/cookie_logout"
+        }
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  </body>
+</html>

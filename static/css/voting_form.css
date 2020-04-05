@@ -1,0 +1,58 @@
+/*----------------------------------------------*/
+/*PAGE BODY ITSELF*/
+html { 
+  background: url(../pics/voting.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+/*.bg {*/
+/*    background-image: url(../pics/profile_bg.png);*/
+/*}*/
+
+.need_white {
+    color: white;
+    background-color: rgba(0,0,0,.5);
+    
+}
+
+.content {
+    margin: auto;
+    width: 750px;
+    border: 3px solid blue;
+}
+
+body {
+    /*width: 100%;*/
+    /*bottom: auto;*/
+    margin: 0px;
+    text-align: center;
+}
+
+
+/*#banner {*/
+/*  background-size: cover;*/
+/*  background-position: center;*/
+/*}*/
+/*#banner h1{*/
+/*  border: 3px solid white;*/
+  /*position: relative;*/
+/*  top: 100px;*/
+/*  width: 400px;*/
+/*  margin: 0 auto;*/
+/*  color: white;*/
+/*  background-color: black;*/
+/*  text-align: center;*/
+/*}*/
+
+img.animated-gif{
+  width: 300px;
+  height: auto;
+  margin: 20px;
+}
+
+/*----------------------------------------------*/
+/*CONTENT DIV*/
+/*margin is the space between this element and other elements*/
+/*padding is the space the content within this element and the outside edge of the element*/

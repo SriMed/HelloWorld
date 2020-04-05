@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>FunForm: PredictFuture</title>
+        <link href="./css/funform.css" type="text/css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="css/nav_bar.css">
+        <link rel="stylesheet" type="text/css" href="css/funform.css">
+        <link href='https://fonts.googleapis.com/css?family=Dekko' rel='stylesheet'>
+        <style>
+            body {
+             font-family: 'Dekko';font-size: 22px;
+            }
+        </style>
+    </head>
+    <body>
+        
+        {{> nav_bar }}
+        
+        <div class="need_white">
+            <h2>Enter the following information to predict your future!</h2>
+            <p id="message">{{message}}</p>
+            <div class="form">
+                <form action="predictFuture" method="get" onsubmit="return formval()">
+                    Name:<br>
+                    <input id="name" type="text" name="name">
+                    <br>
+                    Which of the following do you most idenitfy with?<br>
+                    {{#each houses}}
+                        <input type="radio" name=house value={{this.v}} checked>{{this.opt}}<br>
+                    {{/each}}
+                    Choose your Zodiac Sign:<br>
+                    <select name="zodiac">
+                        {{#each zodiacs}}
+                            <option value={{this.v}}>{{this.opt}}</option>
+                        {{/each}}
+                    </select>
+                    <br>
+                    Email Address:
+                    <input id="email" type="text" name="email">
+                    <br>
+                    <button type="submit">Click Here to submit your answers</button>
+                </form>
+            </div>
+        </div>
+        <script type="text/javascript" src="client-js/funform.js"></script>
+    </body>
+</html>

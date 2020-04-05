@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>More Information</title>
+    <link rel="stylesheet" type="text/css" href="css/nav_bar.css">
+    <link rel="stylesheet" type="text/css" href="css/bodyStates.css">
+</head>
+<body>
+    
+    <h1>{{header}}</h1>
+    <h2>{{subheader}}</h2>
+    
+    {{> map_nav_bar }}
+    
+    <div class="funfactinfo">
+    
+        <p>Learn more about the fun facts about the Senate's hometown, Washington D.C.</p>
+        
+        <p id="count"></p>
+        
+        <p id="message">{{message}} will load momentarily</p>
+    
+    </div>
+    
+    <script type="text/javascript">
+        funFacts = {{{funF}}};
+        
+        count = 0
+        
+        timer = setInterval(function() {
+            factNum = Math.random() * (funFacts.length)
+            factNum = parseInt(factNum, 10)
+            console.log(factNum)
+            
+            document.getElementById('message').innerHTML = funFacts[factNum];
+            console.log(funFacts[factNum])
+            count = count + 1
+            document.getElementById('count').innerHTML = "Fact Number " + count;
+            if(count == 10) {
+                console.log("restarting after 10 facts")
+                clearInterval(timer) //stop the interval
+                count = 0
+            }
+        
+        },5000)
+        
+        timer = setInterval(function() {
+            factNum = Math.random() * (funFacts.length)
+            factNum = parseInt(factNum, 10)
+            console.log(factNum)
+            
+            document.getElementById('message').innerHTML = funFacts[factNum];
+            console.log(funFacts[factNum])
+            count = count + 1
+            document.getElementById('count').innerHTML = "Fact Number " + count;
+            if(count == 10) {
+                console.log("restarting after 10 facts")
+                clearInterval(timer) //stop the interval
+            }
+        
+        },5000)
+    </script>
+</body>
+</html>

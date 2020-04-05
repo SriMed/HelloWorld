@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Anagrams Instructions</title>
+    <link href="./css/game.css" type="text/css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/nav_bar.css">
+    <link href='https://fonts.googleapis.com/css?family=Dekko' rel='stylesheet'>
+    <style>
+        body {
+         font-family: 'Dekko';font-size: 22px;
+        }
+    </style>
+  </head>
+  <body>
+    {{!--need to add the oauth page and the start timer page--}}
+    
+    <h1 id="titul" class="need_white">Anagrams</h1>
+    
+    {{> game_nav_bar }}
+    
+    <div class="need_white">
+        <h2>Results</h2>
+        <p>Tally: {{num_tally}}</p>
+        <p>Points: {{num_points}}</p>
+        <table style="width:100%">
+              <tr>
+                <th>Words</th>
+              </tr>
+            {{#each words_list}}
+                <tr>
+                    <td>{{this}}</td>
+                </tr>
+            {{/each}}
+        </table>
+        <p>Your score has been added to the leaderboard. Check and see if you're in the top ten!</p>
+    </div>
+  </body>
+</html>

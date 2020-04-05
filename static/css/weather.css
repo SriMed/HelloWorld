@@ -1,0 +1,51 @@
+/*body {*/
+/*  background-image: url(../pics/profile_bg.png);  */
+/*}*/
+
+
+html { 
+  background: url(../pics/weather.png) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+/*.bg {*/
+/*    background-image: url(../pics/profile_bg.png);*/
+/*}*/
+
+.need_white {
+    color: white;
+    background-color: rgba(0,0,0,.5);
+    /*background-color: black;*/
+    text-align: right;
+    padding:20px 47px;
+    
+}
+
+.titul {
+    color: rgba(153,204,0);
+}
+
+h1 {
+    font-size: 100px;
+}
+
+p {
+    text-align: right;
+}
+
+.img {
+    text-align: center;
+    border: 3px solid white;
+}
+
+.form_content {
+    text-align: right;
+    margin-right: 0;
+    border: 3px solid white;
+    /*top: 100px;*/
+    width: 400px;
+    color: white;
+    background-color: black;
+}
